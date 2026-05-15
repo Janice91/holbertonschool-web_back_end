@@ -1,12 +1,10 @@
-import express from 'express';
-import router from './routes/index';
+const express = require('express');
+const routes = require('./routes');
 
 const app = express();
-const PORT = 1245;
 
-app.use('/', router);
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.use('/', routes);
 
-export default app;
+app.listen(1245);
+
+module.exports = app;
