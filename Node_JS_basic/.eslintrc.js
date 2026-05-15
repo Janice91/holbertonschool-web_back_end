@@ -1,37 +1,17 @@
 module.exports = {
   env: {
-    es2021: true,
+    browser: false,
+    es6: true,
     node: true,
-    jest: true,
+    mocha: true,
   },
-  extends: ['airbnb-base'],
+  extends: 'airbnb-base',
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
   rules: {
     'no-console': 'off',
-    'import/extensions': ['error', 'ignorePackages', {
-      js: 'never',
-    }],
-    'class-methods-use-this': 'off',
-    'no-unused-vars': ['error', {
-      argsIgnorePattern: '^_',
-    }],
+    'no-unused-vars': ['error', { argsIgnorePattern: 'req|res|next' }],
   },
-  overrides: [
-    {
-      files: ['full_server/**/*.js'],
-      parserOptions: {
-        sourceType: 'module',
-      },
-    },
-    {
-      files: ['*.js'],
-      excludedFiles: ['full_server/**/*.js'],
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
 };
